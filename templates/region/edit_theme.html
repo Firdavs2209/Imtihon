@@ -1,0 +1,14 @@
+<!-- edit_region.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Edit Region - {{ region.name }}</h1>
+    <form action="{% url 'edit_region' region.id %}" method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" value="{{ region.name }}"><br>
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description">{{ region.description }}</textarea><br>
+        <input type="submit" value="Save">
+    </form>
+{% endblock %}

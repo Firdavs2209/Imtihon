@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    {{ region.name }}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>{{ region.name }}</h2><br>
+                <p>{{ region.description }}</p><br>
+                <img src="{{ region.image.url }}" alt="{{ region.name }}" class="img-fluid">
+                <p>Area: {{ region.Area }}</p>
+                <a href="{% url 'delete' region.id %}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
